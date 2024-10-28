@@ -1,10 +1,11 @@
-import React, {useState, useEffect, useContext, useReducer, useMemo, useCallback } from 'react'
+import React, {useState } from 'react'
+// import React, {useState, useEffect, useContext, useReducer, useMemo, useCallback } from 'react'
 
-//CONTEXT
+// CONTEXT
 // const Theme = React.createContext('dark')
 
 
-//REDUCER
+// REDUCER
 // const initialState = { count: 0 };
 // function reducer(state, action) {
 //   switch (action.type) {
@@ -32,7 +33,8 @@ import React, {useState, useEffect, useContext, useReducer, useMemo, useCallback
 // }
 
 
-function Counters(props) {
+// eslint-disable-next-line react/prop-types
+function Counters({name}) {
   const [count, setCount] = useState(0)
     // const themes = useContext(Theme)
     // const [state, dispatch] = useReducer(reducer, initialState);
@@ -53,7 +55,7 @@ function Counters(props) {
 
 
 
-  //CALLBACK
+  // CALLBACK
   // const [count, setCount] = useState(0);
   // const increment = useCallback(() => setCount(count + 1), [count]);
   
@@ -61,7 +63,7 @@ function Counters(props) {
   return (
     <div>
       {/* useState */}
-      <p>hai {props.name}, anda menekan tombol sebanyak {count} kali</p>
+      <p>hai {name}, anda menekan tombol sebanyak {count} kali</p>
       <button onClick={() => setCount(count + 1)} type='button'>Tambah</button>
 
       {/* useContext */}
