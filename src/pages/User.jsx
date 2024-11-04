@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-console */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-nested-ternary */
 import React from 'react'
@@ -11,6 +13,11 @@ import { getDataUserResult } from '../store/actions/users.action'
 function Users() {
   const dispatch = useDispatch()
   const datas = useSelector((state) => state.users.animeList)
+  // const datasss = useSelector((state) => state.[namaReducer].[namaStateYangDiInitialStateReducer])
+
+  // const datas = JSON.parse(localStorage.getItem("data"))
+  // const datas = JSON.parse(sessionStorage.getItem("datas"))
+
 
   const handleSearch = debounce((value) => {
     dispatch(
