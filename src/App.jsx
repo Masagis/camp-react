@@ -1,6 +1,7 @@
 // import Counters from './Counters'
 import React from 'react'
-import CountersApp from './CounterApp'
+// import CountersApp from './CounterApp'
+import Users from './pages/User'
 // eslint-disable-next-line import/no-extraneous-dependencies
 // import { Routes, Route, Link } from 'react-router-dom'
 
@@ -14,7 +15,8 @@ function App() {
   return (
     // eslint-disable-next-line react/react-in-jsx-scope
     <div className="App">
-      <CountersApp nme="camp" />
+      {/* <CountersApp nme="camp" /> */}
+      <Users/>
 
       {/* <nav>
         <ul>
