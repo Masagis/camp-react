@@ -1,5 +1,8 @@
 name: Deploy to Vercel 
 
+env:
+  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }} # Pulls Vercel token from GitHub secrets
+
 on:
   push:
     branches:
@@ -24,6 +27,4 @@ jobs:
         run: npm run build # Adjust this if your project uses a different build command
 
       - name: Deploy to Vercel
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }} # Pulls Vercel token from GitHub secrets
         run: npx vercel --prod --token $VERCEL_TOKEN
