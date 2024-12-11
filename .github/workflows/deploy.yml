@@ -15,16 +15,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: "16" # Specify the Node.js version you want to use
       - name: Install vercel CLI
         run: npm install --global vercel@latest
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --frozen-lockfile
+
+      - name: Build app
+        run: npm run build
+
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
       - name: Build Project Artifacts
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+        
       - name: Deploy Project Artifacts to Vercel
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
