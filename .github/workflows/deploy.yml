@@ -19,12 +19,12 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "16" # Specify the Node.js version you want to use
+      - name: Install vercel CLI
+        run: npm install --global vercel@latest
 
       - name: Install dependencies
         run: npm install
-
-      - name: Build project
-        run: npm run build # Adjust this if your project uses a different build command
-
-      - name: Deploy to Vercel
-        run: npx vercel --prod --token $VERCEL_TOKEN
+      - name: Build Project Artifacts
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Deploy Project Artifacts to Vercel
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
